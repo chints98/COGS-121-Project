@@ -13,10 +13,11 @@
             console.log(sessionStorage.getItem('authorized'));
 
             //If there is no session, go back to home page
-            if (sessionStorage.getItem('authorized') != "yes") {
-                window.location = 'login.html';
-            }
-
+            // if (sessionStorage.getItem('authorized') != "yes") {
+            //     window.location= 'login.html';
+            // }
+            
+            //Click handler
             $("#news1").click(() => {
                 window.locaton.href = "./news1Profile.html"
 

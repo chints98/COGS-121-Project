@@ -3,5 +3,12 @@
 height: 30;
 background-color: #71eeb8;
 margin-left: 80px;
+}
 
+.newsStyle{
+    width: 150px;
+    border-color: #71eeb8;
+    border-bottom: solid; 
+    padding: 5px;
+    border-width: 3px;
 }

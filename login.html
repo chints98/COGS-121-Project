@@ -18,15 +18,21 @@
                     var passwordInput = $("#password").val();
 
                     if (usernameInput != "" && passwordInput != "") {
+
                         $.ajax({
                             url: 'user1.php/',
-                            type: 'POST',
-                            // data: { userName: usernameInput, password: passwordInput },
-                            data: { username: password },
+                            type: 'GET',
                             dataType: "json",
-                            success: function() {
-                                if (usernameInput == userame && passwordInput == password) {
+                            //processData: false,
+                            success: function(data) {
+                                if (usernameInput == data.username && passwordInput == data.password) {
+                                    // //Start session Storage
+                                    // sessionStorage.setItem('authorized', 'yes');
+                                    
                                     window.location.href = "newsFeed.html";
+
+                                 
+
                                 } else {
                                     alert("Invalid username and password!");
                                 }
@@ -43,6 +49,9 @@
 <body>
     <h1>Welcome to Releaf</h1>
 
+
+ 
+
         UserName: <input type="text" id="userName" />
         <br>
         <br>
@@ -50,6 +59,9 @@
         <br>
         <br>
         <button id="but_Login">Login</button>
+        
+        
+
 
     
     
