@@ -8,8 +8,7 @@ Our idea is similar because we are still focusing on providing updates on real-t
  
 ### **Screenshots of UI Skeleton**
 1. Login page
-![Image of Login Page]
-(M2_Images/m2_login_ui1.png)
+![Image of Login Page](https://github.com/chints98/COGS-121-Project/blob/master/M2_Images/m2_login_ui1.png)
 
 2. News Feed
 ![Image of News Feed Page]
