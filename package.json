@@ -1,0 +1,23 @@
+{
+  "name": "cogs-121-project",
+  "version": "1.0.0",
+  "description": "Project for COGS 121",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chints98/COGS-121-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chints98/COGS-121-Project/issues"
+  },
+  "homepage": "https://github.com/chints98/COGS-121-Project#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

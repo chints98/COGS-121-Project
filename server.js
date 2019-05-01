@@ -15,19 +15,19 @@ app.get('/', function(req, res) {
 
 // GET function to make sure login works
 app.get('/userAccount', function(req, res) {
-    
+
 });
 
 
-//Fake database has some key attributes. 
+//Fake database has some key attributes.
 //1. news headline
 //1. Article body
 //1. Article image
 //1. news headline
 
 const newsDatabase = {
-    'headline1': 
-    {headline: 'Fire kills 5 in San Diego', body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    'headline1':
+    {headline: 'Fire kills 5 in San Diego', body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     image: 'news1Pic.jpg'
     }
 }
@@ -58,13 +58,13 @@ app.get('/articleData', function(req, res) {
 
 
 // GET news data on article page
-// Have to change functionality of this a fair bit to present 
+// Have to change functionality of this a fair bit to present
 app.get('/articleDetail:headline', function(req, res) {
     const lookup = newsDatabase[headline]
     console.log(lookup)
     const article = newsDatabase[lookup]
     res.send(article)
-    
+
 });
 
 
@@ -74,4 +74,4 @@ app.get('/articleDetail:headline', function(req, res) {
 app.listen(3000, () => {
     console.log('Server started at http://localhost:3000/');
   });
-  
+
