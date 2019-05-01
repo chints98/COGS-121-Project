@@ -11,12 +11,10 @@ Our idea is similar because we are still focusing on providing updates on real-t
 ![Image of Login Page](https://github.com/chints98/COGS-121-Project/blob/master/M2_Images/m2_login_ui1.png)
 
 2. News Feed
-![Image of News Feed Page]
-(https://github.com/chints98/COGS-121-Project/blob/master/M2_Images/m2_newsfeed_ui2.png)
+![Image of News Feed Page](https://github.com/chints98/COGS-121-Project/blob/master/M2_Images/m2_newsfeed_ui2.png)
 
 3. Individual Article
-![Image of Individual Article Page]
-(https://github.com/chints98/COGS-121-Project/blob/master/M2_Images/m2_article_ui3.png)
+![Image of Individual Article Page](https://github.com/chints98/COGS-121-Project/blob/master/M2_Images/m2_article_ui3.png)
 
 
 ### **Difference btw/ Screenshots & Paper Prototypes**
