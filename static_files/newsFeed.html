@@ -32,8 +32,9 @@
             // }
             
             //Click handler
-            $("#news1").click(() => {
-                window.locaton.href = "./news1Profile.html"
+            $(".newStyle").click(() => {
+                console.log('hi');
+                window.location.href = "news1Profile.html"
 
         });
     });
@@ -54,6 +55,8 @@
 </head>
 <body>
     <h1>NewsFeed</h1>
+
+    <div class="back-button"><a class="back" href="login.html">Logout</a></div>
 
     <div class="article-card">
             <div class="newStyle" id="news1">
