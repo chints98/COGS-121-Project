@@ -24,3 +24,46 @@ margin-left: 80px;
     float: right;
     padding-top: 20px;
 }
+
+.centerLogin{
+
+position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  vertical-align: middle; 
+}
+
+.centerBut{
+  height: 20px;
+  width: 100px;
+  margin-right: 80px;
+}
+
+.logoSize{
+    height: 200px;
+}
+
+
+#topNews{
+    /* margin: 0 auto;
+    justify-content: center; */
+     position:relative;
+    margin:0 auto;
+    clear:left;
+    height:auto;
+    z-index: 0;
+    text-align:center;
+   
+}
+
+#butNews{
+    display: inline-block;
+    padding: 10px;
+}
+
+#learnBut{
+    background-color: #71eeb8;
+    margin-top: 10px; 
+}
