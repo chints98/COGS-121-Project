@@ -1,69 +1,75 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>News 1 Profile</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>News 1 Profile</title>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    
-    
-    <script type="text/javascript">
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+                               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
 
-    $(document).ready(function () {
 
-        $.ajax({
-                url: 'articleData',
-                type: 'GET',
-                dataType: 'json', 
-                success: (data) => {
-                    console.log(data)
-                    console.log(data.body)
-                    $('.article-header').append(data.headline)
-                    $('.article-body').append(data.body)
-                    console.log(data.body)
-                    
-                    var img = document.createElement("IMG");
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                var toggle_US = true;
+                if (toggle_US == false) {
+                    filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
+                }
+                else {
+                    filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'}
+
+                $.ajax({
+
+                    url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&' + filters,
+                    type: 'GET',
+                    dataType: 'json', 
+                    success: (res) => {
+                        console.log(res)
+                        console.log(res)
+                        $('.article-header').append(res.data[0].fields.title)
+                        $('.article-body').append(res.data[0].fields.body)
+
+                        /*var img = document.createElement("IMG");
                     img.src = data.image;
                     $('.image-container').html(img); 
-                    
+                         */
 
 
-                    // console.log(data.headline)
-                    // console.log(data.body)
-                }
+                        // console.log(data.headline)
+                        // console.log(data.body)
+                    }
 
+                });
+
+                $("#but_donate").click(() => {
+                    alert("You have clicked donate!")
+                })
+                $("#but_volunteer").click(() => {
+                    alert("You have clicked volunteer!")
+                })
             });
-    
-    $("#but_donate").click(() => {
-        alert("You have clicked donate!")
-    })
-    $("#but_volunteer").click(() => {
-            alert("You have clicked volunteer!")
-        })
-    });
 
         </script>
-</head>
-<body>
+    </head>
+    <body>
 
-    <!-- Article Body-->
-    <h1 class="article-header"></h1>
-    <div class="back-button">
-        <button id="learnBut" type="button" class="btn btn-light">
-            <a href="newsFeed.html">Back</a>
-        </button>
-    </div>
+        <!-- Article Body-->
+        <h1 class="article-header"></h1>
+        <div class="back-button">
+            <button id="learnBut" type="button" class="btn btn-light">
+                <a href="newsFeed.html">Back</a>
+            </button>
+        </div>
 
-    <div class="image-container"></div>
+        <div class="image-container"></div>
 
-    <p class="article-body"></p>
+        <p class="article-body"></p>
 
-    <button id="learnBut" type="button" class="btn btn-light">Donate</button>
-    <button id="learnBut" type="button" class="btn btn-light">Volunteer</button>
-    
-</body>
+        <button id="but_donate" type="button" class="btn btn-cust">Donate</button>
+        <button id="but_volunteer" type="button" class="btn btn-cust">Volunteer</button>
+
+    </body>
 </html>

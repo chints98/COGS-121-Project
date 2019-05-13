@@ -32,6 +32,29 @@ const newsDatabase = {
     }
 }
 
+/*
+app.get('/news/:articleid', (req, res) => {
+    const articleToLookup = req.params.articleid;
+    var articleFound;
+    $.ajax({
+        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3',
+        type:'GET',
+        dataType:'json',
+        success: (res) => {
+console.log('getting data')
+            for (var i = 0; i<res.data.length; i++) {
+                if (res.data[i].id == articleToLookup) {
+                articleFound = res.data[i]
+                }
+            }
+        }
+
+    });
+
+    res.send(articleFound.fields.title);
+
+});
+*/
 
 
 const userDatabase = {
