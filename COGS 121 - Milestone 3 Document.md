@@ -1,4 +1,4 @@
-# COGS 121 - Milestone 3 Document
+# milestone3
 
 ### Difference from UI skeleton in Milestone 2
 
