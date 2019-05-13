@@ -1,70 +1,76 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Releaf</title>
 
-   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 
 
     <script type="text/javascript">
-        
-        $(document).ready(() =>  {
 
-                $("#but_Login").click(() => {
-                    var usernameInput = $("#userName").val();
-                    var passwordInput = $("#password").val();
+        $(document).ready(() => {
 
-                    if (usernameInput != "" && passwordInput != "") {
+            $("#but_Login").click(() => {
+                var usernameInput = $("#userName").val();
+                var passwordInput = $("#password").val();
 
-                        $.ajax({
-                            url: 'userCred',
-                            type: 'GET',
-                            dataType: "json",
-                            //processData: false,
-                            success: function(data) {
-                                if (usernameInput == data.username && passwordInput == data.password) {
-                                    // //Start session Storage
-                                    // sessionStorage.setItem('authorized', 'yes');
-                                    
-                                    window.location.href = "newsFeed.html";
+                if (usernameInput != "" && passwordInput != "") {
 
-                                 
+                    $.ajax({
+                        url: 'userCred',
+                        type: 'GET',
+                        dataType: "json",
+                        //processData: false,
+                        success: function (data) {
+                            if (usernameInput == data.username && passwordInput == data.password) {
+                                // //Start session Storage
+                                // sessionStorage.setItem('authorized', 'yes');
 
-                                } else {
-                                    alert("Invalid username and password!");
-                                }
+                                window.location.href = "newsFeed.html";
+
+                            } else {
+                                alert("Invalid username and password!");
                             }
-                        });
-                    }
-                });
+                        }
+                    });
+                }
+            });
         });
-            
+
 
     </script>
-  
+
 </head>
+
 <body>
-    <h1>Welcome to Releaf</h1>
+    <div class="centerLogin">
+        <img class="logoSize" src="./transparent_Logo.png" alt="logo">
+        <p>
+            <input type="text" id="userName" placeholder="Enter your username" />
+        </p>
+        <p>
+            <input type="password" id="password" placeholder="Enter you password" />
+        </p>
+
+        <p>
+            <button class="centerBut" id="but_Login">Login</button>
+        </p>
+    </div>
 
 
- 
-
-        UserName: <input type="text" id="userName" />
-        <br>
-        <br>
-        Password: <input type="password" id="password" />
-        <br>
-        <br>
-        <button id="but_Login">Login</button>
-        
-        
 
 
-    
-    
+
+
+
+
+
 
 
 
@@ -74,5 +80,3 @@
 
 
 </html>
-
-

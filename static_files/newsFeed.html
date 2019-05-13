@@ -1,21 +1,23 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>NewsFeed Page</title>
     <link rel="stylesheet" href="styles.css">
-    
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <script type="text/javascript">
         $(document).ready(() => {
 
-
             $.ajax({
                 url: 'articleData',
                 type: 'GET',
-                dataType: 'json', 
+                dataType: 'json',
                 success: (data) => {
                     console.log(data)
                     $('.article-header').append(data.headline)
@@ -30,72 +32,83 @@
             // if (sessionStorage.getItem('authorized') != "yes") {
             //     window.location= 'login.html';
             // }
-            
+
             //Click handler
             $(".newStyle").click(() => {
                 console.log('hi');
                 window.location.href = "news1Profile.html"
 
+            });
         });
-    });
-
-
-
-                
-
-    
-        
-
-
-
-
 
 
     </script>
 </head>
-<body>
-    <h1>NewsFeed</h1>
 
-    <div class="back-button"><a class="back" href="login.html">Logout</a></div>
+<body>
+    <div class="back-button">
+        <button id="learnBut" type="button" class="btn btn-light">
+            <a class="back" href="login.html">Logout</a>
+        </button>  
+    </div>
+
+    <div id="topNews">
+        <img class="logoSize" src="./transparent_Logo.png" alt="logo">
+    </div>
+
+
+    <form id="topNews">
+        <button id="butNews" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+            US
+        </button>
+        <button id="butNews" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+            World
+        </button>
+    </form>
+
+
 
     <div class="article-card">
             <div class="newStyle" id="news1">
                 <img class="newsStyle" src="./news1Pic.jpg" alt="news1">
-                
             </div>
+            <button id="learnBut" type="button" class="btn btn-light">Learn More</button>
             <h3 class="article-header"></h3>
             <p class="article-body" id="news1Text"></p>
         </div>
 
-    
-    
+        <div class="article-card">
+            <div class="newStyle" id="news2">
+                <img class="newsStyle" src="./news1Pic.jpg" alt="news2">
+            </div>
+            <button id="learnBut" type="button" class="btn btn-light">Learn More</button>
+            <h3 class="article-header"></h3>
 
-    <div class="article-card">
-        <div class="newStyle" id="news2">
-            <img class="newsStyle" src="./news1Pic.jpg" alt="news2">
-            
+            <p class="article-body" id="news2Text"></p>
         </div>
-        <h3 class="article-header"></h3>
-
-        <p class="article-body" id="news2Text"></p>
-    </div>
 
 
 
-    <div class="article-card">
+        <div class="article-card">
             <div class="newStyle" id="news3">
                 <img class="newsStyle" src="./news1Pic.jpg" alt="news3">
-            
             </div>
+            <button id="learnBut" type="button" class="btn btn-light">Learn More</button>
             <h3 class="article-header"></h3>
 
             <p class="article-body" id="news3Text"></p>
         </div>
-
-     
         
-   
+        <nav aria-label="Page navigation example" >
+            <ul id="pageScroll" class="pagination">
+                <li class="page-item"><a id="pageNum" class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a id="pageNum" class="page-link" href="#">1</a></li>
+                <li class="page-item"><a id="pageNum" class="page-link" href="#">2</a></li>
+                <li class="page-item"><a id="pageNum" class="page-link" href="#">3</a></li>
+                <li class="page-item"><a id="pageNum" class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
 
-    
 </body>
+
 </html>

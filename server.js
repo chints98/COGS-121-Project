@@ -34,8 +34,6 @@ const newsDatabase = {
 
 
 
-
-
 const userDatabase = {
     'admin': {username: 'admin', password: 'admin'}
 }
