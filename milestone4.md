@@ -48,7 +48,7 @@ Note: this all still gets loaded on the same page (News Feed).
 ## User Action 2
 The user can toggle between US related and Global news articles, with the news articles loading on the same page. 
 
-##How these actions demonstrate core functionality and are different 
+## How these actions demonstrate core functionality and are different
 These demonstrate substantive actions because the first action consists steps like using the navigation tab bar to access different “World” news or “US” based news and having stream of news articles being loaded onto the same newsfeed page. The second user action allows the user to use the toggle function to switch between “US” and “World” news articles, while being loaded on the same page. 
 
 The secondary actions that the user can take is using the Donate or Volunteer button for the user to “pay” forward to a cause that’s happening globally or in US. The “Learn More” button allows the user to get more information about the given news article in case that the short blurb about the recent news isn’t enough. 
