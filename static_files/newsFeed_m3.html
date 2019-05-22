@@ -16,13 +16,18 @@
             $(document).ready(() => {
 
                 var toggle_US = true;
+                var baseurl =
+                    'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&';
                 var params;
-                var filters;
+                var filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full';
+                var filters_World =
+'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full'; 
                 var article_IDs = [];
+                var articles;
 
                 //Initial page loading 
                 $.ajax({
-                    url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3',
+                    url: baseurl + filters,
                     type: 'GET',
                     dataType: 'json',
                     success: (res) => {
@@ -30,45 +35,31 @@
                         $('.article-header').each((index,element) => {
                             element.innerHTML = res.data[index].fields.title
                             article_IDs[index] = res.data[index].id
+                            articles = res;
                         });
+                        $('.article-body').each((index,element) => {
+                            element.innerHTML =
+                                res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
+                        });
+                        console.log(articles);
                     }
                 });
 
 
                 //Learn More click
-                $('#learnBut1').click( () => {
-                    if (toggle_US==false) {
-                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
-                    }
-                    else {
-                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
-                    }
-                    $.ajax({
-                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&' + filters,
-                        //url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3',
-                        type: 'GET',
-                        dataType: 'json',
-                        success: (res) => {
-                            console.log(res);
-                            document.getElementById(("news"+1+"Text")).innerHTML = res.data[0].fields.body;
-                            $('#news1Text').append('<button id="but_donate" type="button" class="btn btn-cust">Donate</button> <button id="but_volunteer" type="button" class="btn btn-cust">Volunteer</button>');
-                            //Donate & Vol click
-                            $('#but_donate').click(() => {
-                                alert("You have clicked donate!")
-                            });
+                $('.learnBut').click(function(event) {
+                    var but_index = event.target.id.slice(-1);
+                    console.log(but_index);
 
-                            $('#but_volunteer').click(() => {
-                                alert("You have clicked volunteer!")
-                            });
-
-
-
-                        }
-                    });
+                    //Pull up individual page
+                    var targetID = articles.data[but_index - 1].id
+                    console.log(targetID)
+                    window.location.href =
+                        '/newsProfile.html?id='+targetID+'&toggle_US='+toggle_US;
                 });
 
 
-                $('#learnBut2').click( () => { 
+                /*           $('#learnBut2').click( () => { 
                     if (toggle_US==false) {
                         filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
                     }
@@ -83,7 +74,7 @@
                             console.log(res);
                             document.getElementById(("news"+2+"Text")).innerHTML = res.data[1].fields.body;
                             $('#news2Text').append('<button id="but_donate2" type="button" class="btn btn-cust">Donate</button> <button id="but_volunteer2" type="button" class="btn btn-cust">Volunteer</button>');
-                            //Donate & Vol click
+//Donate & Vol click
                             $('#but_donate2').click(() => {
                                 alert("You have clicked donate!")
                             });
@@ -96,64 +87,40 @@
                         }
                     });
                 });
+                 */
 
 
-                $('#learnBut3').click( () => {
-                    if (toggle_US==false) {
-                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
-                    }
-                    else {
-                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
-                    }
-                    $.ajax({
-                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&' + filters,
-                        type: 'GET',
-                        dataType: 'json',
-                        success: (res) => {
-                            console.log(res);
-                            document.getElementById(("news"+3+"Text")).innerHTML = res.data[2].fields.body;
-                            $('#news3Text').append('<button id="but_donate3" type="button" class="btn btn-cust">Donate</button> <button id="but_volunteer3" type="button" class="btn btn-cust">Volunteer</button>');
+//Toggle location filter
+$('#butNewsWorld').click( () => {
+    toggle_US = false;
+    $.ajax({        
+        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full',
+        type: 'GET',
+        dataType: 'json',
+        success: (res) => {
+            console.log(res);
+            articles = res;
+            $('.article-header').each((index,element) => {
+                console.log('world clicked!');
+                element.innerHTML = res.data[index].fields.title
+                document.getElementById(("news1Text")).innerHTML ="";
+                document.getElementById(("news2Text")).innerHTML ="";
+                document.getElementById(("news3Text")).innerHTML ="";
 
-                            //Donate & Vol click
-                            $('#but_donate3').click(() => {
-                                console.log('hi');
-                                alert("You have clicked donate!")
-                            });
-
-                            $('#but_volunteer3').click(() => {
-                                alert("You have clicked volunteer!")
-                            });
+            });
+            $('.article-body').each((index,element) => {
+                element.innerHTML =
+                    res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
+            });
 
 
-                        }
-                    });
-                });
-
-
-                //Toggle location filter
-                $('#butNewsWorld').click( () => {
-                    toggle_US = false;
-                    $.ajax({        
-                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3',
-                        type: 'GET',
-                        dataType: 'json',
-                        success: (res) => {
-                            console.log(res);
-                            $('.article-header').each((index,element) => {
-                                console.log('world clicked!');
-                                element.innerHTML = res.data[index].fields.title
-                                document.getElementById(("news1Text")).innerHTML ="";
-                                document.getElementById(("news2Text")).innerHTML ="";
-                                document.getElementById(("news3Text")).innerHTML ="";
-
-                            });
-                        }
+        }
 
 
 
-                    });
+    });
 
-                });
+});
 
                 $('#butNewsUS').click( () => {
                     toggle_US = true;
@@ -163,6 +130,7 @@
                         dataType: 'json',
                         success: (res) => {
                             console.log(res);
+                            articles = res;
                             $('.article-header').each((index,element) => {
                                 console.log('U.S. clicked!');
                                 element.innerHTML = res.data[index].fields.title
@@ -171,6 +139,11 @@
                                 document.getElementById(("news3Text")).innerHTML ="";
 
                             });
+                            $('.article-body').each((index,element) => {
+                            element.innerHTML =
+                                res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
+                        });
+        
                         }
 
 
@@ -187,7 +160,7 @@
 
                 });
 
-            });
+});
         </script>
     </head>
 
@@ -220,19 +193,21 @@
             <div class="newStyle" id="news1">
                 <img class="newsStyle" src="./news1Pic.jpg" alt="news1">
             </div>
-            <button id="learnBut1" type="button" class="btn btn-cust">Learn More</button>
             <h3 class="article-header"></h3>
             <p class="article-body" id="news1Text"></p>
+            <button id="learnBut1" type="button" class="btn btn-cust learnBut">Learn More
+            </button>
+
         </div>
 
         <div class="article-card">
             <div class="newStyle" id="news2">
                 <img class="newsStyle" src="./news1Pic.jpg" alt="news2">
             </div>
-            <button id="learnBut2" type="button" class="btn btn-cust">Learn More</button>
             <h3 class="article-header"></h3>
 
             <p class="article-body" id="news2Text"></p>
+            <button id="learnBut2" type="button" class="btn btn-cust learnBut">Learn More</button>
         </div>
 
 
@@ -241,10 +216,10 @@
             <div class="newStyle" id="news3">
                 <img class="newsStyle" src="./news1Pic.jpg" alt="news3">
             </div>
-            <button id="learnBut3" type="button" class="btn btn-cust">Learn More</button>
             <h3 class="article-header"></h3>
 
             <p class="article-body" id="news3Text"></p>
+            <button id="learnBut3" type="button" class="btn btn-cust learnBut">Learn More</button>
         </div>
 
         <nav aria-label="Page navigation example" >

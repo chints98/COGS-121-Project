@@ -1,0 +1,75 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>News 1 Profile</title>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+                               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                var url = document.location.href;
+                console.log(url.indexOf("&"));
+                var params = url.split('?')[1].substring();
+                var params_id = params.substring(3, params.indexOf("&"));
+                var params_toggleUS = url.split('&')[1].substring(10);
+                console.log(params)
+                console.log(params_toggleUS)
+
+                 $.ajax({
+                    url: '/news/' + params_id + '/' + params_toggleUS,
+                    type: 'GET',
+                    dataType: 'json', 
+                    success: (res) => {
+                        console.log(res)
+                        $('.article-header').append(res.title)
+                        $('.article-body').append(res.body)
+
+                        /*var img = document.createElement("IMG");
+                    img.src = data.image;
+                    $('.image-container').html(img); 
+                         */
+
+
+                        // console.log(data.headline)
+                        // console.log(data.body)
+                    }
+
+                });
+
+                $("#but_donate").click(() => {
+                    alert("You have clicked donate!")
+                })
+                $("#but_volunteer").click(() => {
+                    alert("You have clicked volunteer!")
+                })
+            });
+
+        </script>
+    </head>
+    <body>
+
+        <!-- Article Body-->
+        <h1 class="article-header"></h1>
+        <div class="back-button">
+            <button id="learnBut" type="button" class="btn btn-light">
+                <a href="newsFeed_m3.html">Back</a>
+            </button>
+        </div>
+
+        <div class="image-container"></div>
+
+        <p class="article-body"></p>
+
+        <button id="but_donate" type="button" class="btn btn-cust">Donate</button>
+        <button id="but_volunteer" type="button" class="btn btn-cust">Volunteer</button>
+
+    </body>
+</html>
