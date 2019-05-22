@@ -2,9 +2,10 @@
 
 ## UI Screenshots 
 
-For this milestone of the project, we wanted the UI to be an even more refined skeleton of our previous work, with improvements made keeping usability and a better holistic experience in mind. 
+The UI screenshots have improved upon the versions shown in previous milestone 3 by adding in a navigation bar so that the user can easily transition between different pages and have a clean glimpse of what the ReLeaf app’s functionality is. The “Learn More” button is now taking the user to a separate page where the user can freely access more information regarding the tragic cause. We also wanted to incorporate a short blurb about each of the articles instead of revealing the entire article page so that the user doesn’t have to endlessly scroll through the listed articles. 
 
-While some styles are still to be refined, this represents a work in progress indicator towards creating a polished product in terms of visual design and full functionality. 
+Moreover, we applied our visual style guide by choosing primary and secondary colors that best matches our logo and theme of the app which is using different shades of green. We wanted to consider the different states of button as well, such as active versus inactive buttons so that the user can have cues of when to click versus not. For the buttons such as “Donate” and “Volunteer”, we handmade the icons and saved it as a PNG so that we can use them as buttons for the UI elements. Lastly, we made sure that the typography of the app is consistent throughout all screens.
+
 
 
 #### News Feed
