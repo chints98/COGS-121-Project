@@ -46,6 +46,8 @@ position: fixed;
 }
 
 
+
+
 #topNews{
     /* margin: 0 auto;
     justify-content: center; */
@@ -66,9 +68,33 @@ position: fixed;
     padding: 10px;
 }
 
+
 .btn-cust{
     background-color: #71eeb8;
     margin-top: 10px; 
+}
+
+
+
+#page_1 {
+    background-color: #71eeb8;
+}
+
+.btn-nav {
+    background-color: #F5F5F5;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  
+}
+
+.btn-nav:hover {
+    background-color: #71eeb8;
+
+
+}
+
+.page-item {
+    padding: 10px;
 }
 
 #pageScroll{

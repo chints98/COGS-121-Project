@@ -153,6 +153,202 @@ $('#butNewsWorld').click( () => {
                 });
 
 
+                $('#page_0').click( () => {
+                    if (toggle_US==false) {
+                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
+                    }
+                    else {
+                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
+                    }
+                    $.ajax({    
+                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&' + filters,    
+                        type: 'GET',
+                        dataType: 'json',
+                        success: (res) => {
+                            console.log(res);
+                            articles = res;
+                            $('.article-header').each((index,element) => {
+                                console.log('U.S. clicked!');
+                                element.innerHTML = res.data[index].fields.title
+                                document.getElementById(("news1Text")).innerHTML ="";
+                                document.getElementById(("news2Text")).innerHTML ="";
+                                document.getElementById(("news3Text")).innerHTML ="";
+
+                            });
+                            $('.article-body').each((index,element) => {
+                            element.innerHTML =
+                                res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
+                        });
+        
+                        }
+
+
+
+                    });
+
+                });
+
+
+                $('#page_1').click( () => {
+                    if (toggle_US==false) {
+                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
+                    }
+                    else {
+                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
+                    }
+                    $.ajax({    
+                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&' + filters,    
+                        type: 'GET',
+                        dataType: 'json',
+                        success: (res) => {
+                            console.log(res);
+                            articles = res;
+                            $('.article-header').each((index,element) => {
+                                console.log('U.S. clicked!');
+                                element.innerHTML = res.data[index].fields.title
+                                document.getElementById(("news1Text")).innerHTML ="";
+                                document.getElementById(("news2Text")).innerHTML ="";
+                                document.getElementById(("news3Text")).innerHTML ="";
+
+                            });
+                            $('.article-body').each((index,element) => {
+                            element.innerHTML =
+                                res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
+                        });
+
+                        $("#page_2").css("background-color", "#F5F5F5");
+                        $("#page_1").css("background-color", "#71eeb8");
+                        $("#page_3").css("background-color", "#F5F5F5");
+        
+                        }
+
+
+
+                    });
+
+                });
+
+
+                $('#page_2').click( () => {
+                    if (toggle_US==false) {
+                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
+                    }
+                    else {
+                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
+                    }
+                    $.ajax({    
+                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=crime&' + filters,    
+                        type: 'GET',
+                        dataType: 'json',
+                        success: (res) => {
+                            console.log(res);
+                            articles = res;
+                            $('.article-header').each((index,element) => {
+                                console.log('U.S. clicked!');
+                                element.innerHTML = res.data[index].fields.title
+                                document.getElementById(("news1Text")).innerHTML ="";
+                                document.getElementById(("news2Text")).innerHTML ="";
+                                document.getElementById(("news3Text")).innerHTML ="";
+
+                            });
+                            $('.article-body').each((index,element) => {
+                            element.innerHTML =
+                                res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
+                        });
+
+                        $("#page_2").css("background-color", "#71eeb8");
+                        $("#page_1").css("background-color", "#F5F5F5");
+                        $("#page_3").css("background-color", "#F5F5F5");
+                        
+        
+                        }
+
+
+
+                    });
+
+                });
+
+
+
+                $('#page_3').click( () => {
+                    if (toggle_US==false) {
+                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
+                    }
+                    else {
+                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
+                    }
+                    $.ajax({    
+                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=flood&' + filters,    
+                        type: 'GET',
+                        dataType: 'json',
+                        success: (res) => {
+                            console.log(res);
+                            articles = res;
+                            $('.article-header').each((index,element) => {
+                                console.log('U.S. clicked!');
+                                element.innerHTML = res.data[index].fields.title
+                                document.getElementById(("news1Text")).innerHTML ="";
+                                document.getElementById(("news2Text")).innerHTML ="";
+                                document.getElementById(("news3Text")).innerHTML ="";
+
+                            });
+                            $('.article-body').each((index,element) => {
+                            element.innerHTML =
+                                res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
+                        });
+
+
+                        $("#page_2").css("background-color", "#F5F5F5");
+                        $("#page_1").css("background-color", "#F5F5F5");
+                        $("#page_3").css("background-color", "#71eeb8");
+        
+                        }
+
+
+
+
+                    });
+
+                });
+
+
+                $('#page_4').click( () => {
+                    if (toggle_US==false) {
+                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
+                    }
+                    else {
+                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
+                    }
+                    $.ajax({    
+                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake&' + filters,    
+                        type: 'GET',
+                        dataType: 'json',
+                        success: (res) => {
+                            console.log(res);
+                            articles = res;
+                            $('.article-header').each((index,element) => {
+                                console.log('U.S. clicked!');
+                                element.innerHTML = res.data[index].fields.title
+                                document.getElementById(("news1Text")).innerHTML ="";
+                                document.getElementById(("news2Text")).innerHTML ="";
+                                document.getElementById(("news3Text")).innerHTML ="";
+
+                            });
+                            $('.article-body').each((index,element) => {
+                            element.innerHTML =
+                                res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
+                        });
+        
+                        }
+
+
+
+                    });
+
+                });
+
+
                 //Individual Page Linking
 
                 $('#news1').click( () => {
@@ -224,11 +420,29 @@ $('#butNewsWorld').click( () => {
 
         <nav aria-label="Page navigation example" >
             <ul id="pageScroll" class="pagination">
-                <li class="page-item"><a id="pageNum" class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a id="pageNum" class="page-link" href="#">1</a></li>
-                <li class="page-item"><a id="pageNum" class="page-link" href="#">2</a></li>
-                <li class="page-item"><a id="pageNum" class="page-link" href="#">3</a></li>
-                <li class="page-item"><a id="pageNum" class="page-link" href="#">Next</a></li>
+            
+                <!-- 
+                <li class="page-item"><button id="page_0" type="button" class="btn btn-nav" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    1
+                            </button></li>
+
+                -->
+                <li class="page-item"><button id="page_1" type="button" class="btn btn-nav" data-toggle="button" aria-pressed="false" autocomplete="off">
+        1
+                </button></li>
+                <li class="page-item"><button id="page_2" type="button" class="btn btn-nav" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    2
+                            </button></li>
+                <li class="page-item"><button id="page_3" type="button" class="btn btn-nav" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    3
+                            </button></li>
+
+                <!-- 
+                <li class="page-item"><button id="page_4" type="button" class="btn btn-nav" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    Next
+                            </button></li>
+
+                -->
             </ul>
         </nav>
 
