@@ -2,6 +2,7 @@ const express = require ('express');
 const app = express();
 
 var path = require('path');
+var request = require('request');
 
 app.use(express.static('static_files'));
 
@@ -60,6 +61,33 @@ console.log('getting data')
 const userDatabase = {
     'admin': {username: 'admin', password: 'admin'}
 }
+
+// GET news data upon loading News Feed
+app.get('/news/:id/:toggle', function(req,res) {
+
+    var url = 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire';
+    var filters = '&filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full';
+    var toggle_US = req.params.toggle;
+    if (toggle_US == 'false') {
+        console.log('toggle_US is: ' + toggle_US);
+        filters = '&filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full';
+
+    }
+
+
+   request(url+filters, function(err, response, body) {
+        var articleArray = JSON.parse(body).data;
+        var idToLookup = req.params.id;
+        console.log(idToLookup);
+        for (var i = 0 ; i < articleArray.length; i++) {
+            if (articleArray[i].id == idToLookup) {
+                console.log("articleID: " + articleArray[i].id);
+                res.send(articleArray[i].fields);
+            }
+        }
+
+    })
+});
 
 
 app.get('/userCred', function(req, res) {
