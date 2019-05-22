@@ -24,6 +24,7 @@
 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full'; 
                 var article_IDs = [];
                 var articles;
+                var active_page = 1;
 
                 //Initial page loading 
                 $.ajax({
@@ -48,11 +49,13 @@
 
                 //Learn More click
                 $('.learnBut').click(function(event) {
-                    var but_index = event.target.id.slice(-1);
+                    var but_index = parseInt(event.target.id.slice(-1));
                     console.log(but_index);
-
+console.log(active_page);
+                    console.log(but_index+(3*(active_page-1))-1);
                     //Pull up individual page
-                    var targetID = articles.data[but_index - 1].id
+                    var targetID = articles.data[(but_index + (3 *
+                        (active_page-1)) - 1)].id
                     console.log(targetID)
                     window.location.href =
                         '/newsProfile.html?id='+targetID+'&toggle_US='+toggle_US;
@@ -230,7 +233,26 @@ $('#butNewsWorld').click( () => {
 
 
                 $('#page_2').click( () => {
-                    if (toggle_US==false) {
+
+                    active_page = 2;
+                    
+                        $('.article-header').each((index,element) => {
+                                console.log('U.S. clicked!');
+                                element.innerHTML = articles.data[index+3].fields.title
+                                document.getElementById(("news1Text")).innerHTML ="";
+                                document.getElementById(("news2Text")).innerHTML ="";
+                                document.getElementById(("news3Text")).innerHTML ="";
+
+                            });
+                            $('.article-body').each((index,element) => {
+                            element.innerHTML =
+                            articles.data[index+3].fields.body.split(' ').slice(0,30).join(' ') + '...';
+                        });
+
+
+
+
+/*                    if (toggle_US==false) {
                         filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
                     }
                     else {
@@ -266,12 +288,28 @@ $('#butNewsWorld').click( () => {
 
 
                     });
-
+*/
                 });
 
 
 
                 $('#page_3').click( () => {
+active_page = 3;
+            $('.article-header').each((index,element) => {
+                                console.log('U.S. clicked!');
+                                element.innerHTML = articles.data[index+3*2].fields.title
+                                document.getElementById(("news1Text")).innerHTML ="";
+                                document.getElementById(("news2Text")).innerHTML ="";
+                                document.getElementById(("news3Text")).innerHTML ="";
+
+                            });
+                            $('.article-body').each((index,element) => {
+                            element.innerHTML =
+                            articles.data[index+3*2].fields.body.split(' ').slice(0,30).join(' ') + '...';
+                        });
+
+
+                    /*
                     if (toggle_US==false) {
                         filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
                     }
@@ -309,7 +347,7 @@ $('#butNewsWorld').click( () => {
 
 
                     });
-
+*/
                 });
 
 
