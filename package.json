@@ -19,6 +19,7 @@
   "homepage": "https://github.com/chints98/COGS-121-Project#readme",
   "dependencies": {
     "express": "^4.16.3",
-    "newsapi": "^2.4.0"
+    "newsapi": "^2.4.0",
+    "request": "^2.88.0"
   }
 }

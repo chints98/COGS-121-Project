@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
+
+body {
+    font-family: 'Hind' !important;
+
+}
+
 #but_Login
 {
 height: 30;
@@ -17,6 +24,17 @@ margin-left: 80px;
 
 .article-card{
     padding: 20px;
+    margin-top: 24px;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 25%;
+    margin-bottom: 24px;
+
+}
+
+.article-header {
+    padding-top: 16px; 
+
 }
 
 
@@ -70,11 +88,51 @@ position: fixed;
 
 
 .btn-cust{
-    background-color: #71eeb8;
+    background-color: #F5F5F5;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border: #71eeb8;
     margin-top: 10px; 
 }
 
+#butNewsUS{
+    background-color: #71eeb8;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    margin-top: 10px; 
 
+}
+
+
+#butNewsUS:hover {
+
+    background-color: #71eeb8;
+}
+
+
+#butNewsWorld{
+    background-color: #F5F5F5;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border: #71eeb8;
+    margin-top: 10px; 
+
+
+}
+
+#butNewsWorld:hover {
+
+    background-color: #71eeb8;
+}
+
+
+
+
+
+.btn-cust:hover {
+
+    background-color: #71eeb8;
+}
 
 #page_1 {
     background-color: #71eeb8;

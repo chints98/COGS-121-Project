@@ -394,6 +394,21 @@ active_page = 3;
 
                 });
 
+                $('#butNewsWorld').click(() => {
+                    
+                    $("#butNewsWorld").css("background-color", "#71eeb8");
+                    $("#butNewsUS").css("background-color", "#F5F5F5");
+
+
+                });
+
+                $('#butNewsUS').click(() => {
+                    
+                    $("#butNewsWorld").css("background-color", "#F5F5F5");
+                    $("#butNewsUS").css("background-color", "#71eeb8");
+
+
+                });
 });
         </script>
     </head>
@@ -413,10 +428,10 @@ active_page = 3;
 
 
         <form id="topNews">
-            <button id="butNewsUS" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+            <button id="butNewsUS" type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
                 US
             </button>
-            <button id="butNewsWorld" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+            <button id="butNewsWorld" type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
                 World
             </button>
         </form>
