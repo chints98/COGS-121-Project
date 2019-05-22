@@ -41,16 +41,18 @@
                         // console.log(data.headline)
                         // console.log(data.body)
                     }
-
-                });
+                
+                }); 
 
                 $("#but_donate").click(() => {
-                    alert("You have clicked donate!")
+                   window.location = "donate.html"
                 })
                 $("#but_volunteer").click(() => {
                     alert("You have clicked volunteer!")
                 })
             });
+
+  
 
         </script>
     </head>
@@ -68,8 +70,10 @@
 
         <p class="article-body"></p>
 
-        <button id="but_donate" type="button" class="btn btn-cust">Donate</button>
+        <button id="but_donate" type="button" class="btn btn-cust">Donate
+        </button>
         <button id="but_volunteer" type="button" class="btn btn-cust">Volunteer</button>
+
 
     </body>
 </html>
