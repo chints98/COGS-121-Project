@@ -9,6 +9,7 @@
         <link rel="bootstrap" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
                                integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       
+         <link rel="stylesheet" href="styles.css">
 
 
         <script type="text/javascript">
@@ -53,24 +54,27 @@
             });
 
         </script>
-        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
 
         <!-- Article Body-->
+    <div class="article-container">
+            <div class="back-button">
+                    <button id="learnBut" type="button" class="btn btn-cust">
+                        <a href="newsFeed.html">Back</a>
+                    </button>
+                </div>
+
         <h1 class="article-header"></h1>
-        <div class="back-button">
-            <button id="learnBut" type="button" class="btn btn-light">
-                <a href="newsFeed.html">Back</a>
-            </button>
-        </div>
+        
 
         <div class="image-container"></div>
 
         <p class="article-body"></p>
 
-        <button id="but_donate" type="button" class="btn btn-cust">Donate</button>
-        <button id="but_volunteer" type="button" class="btn btn-cust">Volunteer</button>
+        <button id="but_donate" type="button" class="btn btn-cust learnBut">Donate</button>
+        <button id="but_volunteer" type="button" class="btn btn-cust learnBut">Volunteer</button>
+    </div>
 
     </body>
 </html>

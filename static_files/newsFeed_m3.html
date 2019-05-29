@@ -95,6 +95,7 @@ console.log(active_page);
 
 //Toggle location filter
 $('#butNewsWorld').click( () => {
+    active_page = 1;
     toggle_US = false;
     $.ajax({        
         url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full',
@@ -126,6 +127,7 @@ $('#butNewsWorld').click( () => {
 });
 
                 $('#butNewsUS').click( () => {
+                    active_page = 1;
                     toggle_US = true;
                     $.ajax({    
                         url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3',    
@@ -156,40 +158,6 @@ $('#butNewsWorld').click( () => {
                 });
 
 
-                $('#page_0').click( () => {
-                    if (toggle_US==false) {
-                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
-                    }
-                    else {
-                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
-                    }
-                    $.ajax({    
-                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&' + filters,    
-                        type: 'GET',
-                        dataType: 'json',
-                        success: (res) => {
-                            console.log(res);
-                            articles = res;
-                            $('.article-header').each((index,element) => {
-                                console.log('U.S. clicked!');
-                                element.innerHTML = res.data[index].fields.title
-                                document.getElementById(("news1Text")).innerHTML ="";
-                                document.getElementById(("news2Text")).innerHTML ="";
-                                document.getElementById(("news3Text")).innerHTML ="";
-
-                            });
-                            $('.article-body').each((index,element) => {
-                            element.innerHTML =
-                                res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
-                        });
-        
-                        }
-
-
-
-                    });
-
-                });
 
 
                 $('#page_1').click( () => {
@@ -220,8 +188,14 @@ $('#butNewsWorld').click( () => {
                         });
 
                         $("#page_2").css("background-color", "#F5F5F5");
+                        $("#page_2").css("color", "#000000");
+
                         $("#page_1").css("background-color", "#71eeb8");
+                        $("#page_1").css("color", "#FFFFFF");
+
                         $("#page_3").css("background-color", "#F5F5F5");
+                        $("#page_3").css("color", "#000000");
+
         
                         }
 
@@ -248,6 +222,15 @@ $('#butNewsWorld').click( () => {
                             element.innerHTML =
                             articles.data[index+3].fields.body.split(' ').slice(0,30).join(' ') + '...';
                         });
+
+                        $("#page_2").css("background-color", "#71eeb8");
+                        $("#page_2").css("color", "#FFFFFF");
+
+                        $("#page_1").css("background-color", "#F5F5F5");
+                        $("#page_1").css("color", "#000000");
+
+                        $("#page_3").css("background-color", "#F5F5F5");
+                        $("#page_3").css("color", "#000000");
 
 
 
@@ -278,9 +261,7 @@ $('#butNewsWorld').click( () => {
                                 res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
                         });
 
-                        $("#page_2").css("background-color", "#71eeb8");
-                        $("#page_1").css("background-color", "#F5F5F5");
-                        $("#page_3").css("background-color", "#F5F5F5");
+                       
                         
         
                         }
@@ -294,7 +275,7 @@ $('#butNewsWorld').click( () => {
 
 
                 $('#page_3').click( () => {
-active_page = 3;
+                active_page = 3;
             $('.article-header').each((index,element) => {
                                 console.log('U.S. clicked!');
                                 element.innerHTML = articles.data[index+3*2].fields.title
@@ -307,6 +288,17 @@ active_page = 3;
                             element.innerHTML =
                             articles.data[index+3*2].fields.body.split(' ').slice(0,30).join(' ') + '...';
                         });
+
+                        $("#page_2").css("background-color", "#F5F5F5");
+                        $("#page_2").css("color", "#000000");
+
+
+                        $("#page_1").css("background-color", "#F5F5F5");
+                        $("#page_1").css("color", "#000000");
+
+                        $("#page_3").css("background-color", "#71eeb8");
+                        $("#page_3").css("color", "#FFFFFF");
+
 
 
                     /*
@@ -397,6 +389,8 @@ active_page = 3;
                 $('#butNewsWorld').click(() => {
                     
                     $("#butNewsWorld").css("background-color", "#71eeb8");
+                    $("#butNewsWorld").css("color", "#FFFFFF");
+                    $("#butNewsUS").css("color", "#000000");
                     $("#butNewsUS").css("background-color", "#F5F5F5");
 
 
@@ -405,6 +399,8 @@ active_page = 3;
                 $('#butNewsUS').click(() => {
                     
                     $("#butNewsWorld").css("background-color", "#F5F5F5");
+                    $("#butNewsWorld").css("color", "#000000");
+                    $("#butNewsUS").css("color", "#FFFFFF");
                     $("#butNewsUS").css("background-color", "#71eeb8");
 
 
@@ -474,12 +470,7 @@ active_page = 3;
         <nav aria-label="Page navigation example" >
             <ul id="pageScroll" class="pagination">
             
-                <!-- 
-                <li class="page-item"><button id="page_0" type="button" class="btn btn-nav" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    1
-                            </button></li>
-
-                -->
+      
                 <li class="page-item"><button id="page_1" type="button" class="btn btn-nav" data-toggle="button" aria-pressed="false" autocomplete="off">
         1
                 </button></li>
