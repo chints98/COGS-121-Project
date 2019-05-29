@@ -39,6 +39,15 @@ Our UI screenshots have improved upon our versions from the previous Milestone 4
 
 ### Implementation of Data Display
 
+Our data is displayed via a news feed in the home page of the app. We thought that upon logging in, the user should immediately be able to see an overview of the latest disaster news articles. Thus, we use Ajax upon the page loading to automatically populate the container/feed with data of articles we fetch from a ReliefWeb API. 
+
+We also used Ajax to load the next 3 articles with every page (access the next 3 articles with every page (access the next 3 in the stored articles returned) and used Ajax to do the location toggle between US & World News (pass in a different query to API). We also have JS Boolean variables to track what page we are on (to load the right articles) and which location filter we want to use (US vs World).
+
+Regarding our use of the ReliefWeb API, it is an API that logs reports of disaster events worldwide so we felt it was relevant. We query for a specific keyword and also require the reports to have a headline and body. Then, we store the articles returned in a JS variable, which we access throughout to help populate the following pages as well.
+
+We also decided to reduce the clutter on the news feed by displaying just the title and a snippet of the article, so that users can get the gist and click on "Learn More" if they are interested. This will lead them to a page dedicated to the individual article.
+
+Each article also has a unique ID (from API), therefore we use this ID as a query field to the individual pages for each article, so we can match this ID when searching through the articles stored to return the corresponding title and body to display in the page for individual articles.
 
 
 ### Ambitious Data Display/Visualization Ideas 
