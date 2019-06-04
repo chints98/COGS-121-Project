@@ -15,7 +15,7 @@ The team had a variety of skill sets that worked well with one another. The whol
 Chaitanya Prashant
 
 
-Judy Chun
+Judy Chun worked on front-end development during the initial prototyping phase building the skeleton of the login page, call-to-action items such as "Donate" and "Volunteer" elements, and sketched out the interaction flow of how to implement the ajax interaction using the "Learn More" button as a way to show a short blurb of each individual news articles. Made use of visual style guide so that the team can consistently refer back to same color palette, logo usage, iconography, and button states. Working on the demo video to further help brand the app. 
 
 
 Wye Mun Chin 
@@ -39,6 +39,10 @@ server.js - Routing file for navigation within website and contains code managin
 
 styles.css - Styling sheet for our html files
 
+## Link to Google Slide 
+
 Link to Google Slide: https://docs.google.com/presentation/d/1vzqfeAiRA1SYq-AdOf9i-Cy4S1W4uzPEw8DjZ_SCRjY/edit?usp=sharing
 
+
+## Link to Demo Video 
 Link to demo video: 
