@@ -6,11 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Volunteer Form</title>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-             https://firebase.google.com/docs/web/setup#config-web-app -->
 
     <script>
         // Your web app's Firebase configuration
@@ -26,7 +22,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        // Reference messages collection
+        // Reference to volunteer in Firebase 
         var messagesRef = firebase.database().ref('volunteer');
     </script>
 
@@ -96,11 +92,10 @@
                 else {
                     valSun = false;
                 }
-
+                
+                //Get values and post to Firebase
                 database.ref('volunteer').set({
-                    
 
-                    //Get values and post to Firebase
                     firstname: $('#inputFirstName').val(),
                     lastname: $('#inputLastName').val(),
                     email: $('#inputEmail').val(),
@@ -121,8 +116,6 @@
                 });
             };
         })
-
-
 
     </script>
 

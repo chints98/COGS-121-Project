@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Donate Form</title>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    
     <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-             https://firebase.google.com/docs/web/setup#config-web-app -->
 
     <script>
         // Your web app's Firebase configuration
@@ -26,7 +22,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        // Reference messages collection
+        // Reference to variable messages holding data of all values in Firebase
         var messagesRef = firebase.database().ref('messages');
     </script>
 
@@ -46,9 +42,9 @@
             function submitForm(e) {
                 e.preventDefault();
 
+                //Get values and post to Firebase
                 database.ref('messages').set({
 
-                    //Get values and post to Firebase
                     firstname: $('#inputFirstName').val(),
                     lastname: $('#inputLastName').val(),
                     email: $('#inputEmail').val(),
