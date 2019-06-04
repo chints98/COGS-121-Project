@@ -3,10 +3,10 @@
 ## Project Name: Releaf
 ### Team Members
 
-Chaitanya Prashant
-Judy Chun
-Wye Mun Chin
-Yi Zu
+* Chaitanya Prashant
+* Judy Chun
+* Wye Mun Chin
+* Yi Zu
 
 ## Team Contribution Summary
 
