@@ -8,7 +8,7 @@ Judy Chun
 Wye Mun Chin
 Yi Zu
 
-##Team Contribution Summary
+###Team Contribution Summary
 
 The team had a variety of skill sets that worked well with one another. The whole team contributed in terms of generating feasible ideas and converging to the main project idea. 
 
@@ -28,7 +28,7 @@ Yi Zu contributed in the initial user interface prototype including the login pa
 donate.html - Donation form for natural disaster cause 
 login.html - Login page
 
-news1Profile - Initial prototype for individual news page (not used)
+news1Profile.html - Initial prototype for individual news page (not used)
 newsFeed.html - Initial prototype for news dashboard (not used)
 
 newsFeed_m3.html - Main dashboard showing three natural hazard news articles
