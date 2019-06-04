@@ -8,7 +8,7 @@ Judy Chun
 Wye Mun Chin
 Yi Zu
 
-###Team Contribution Summary
+## Team Contribution Summary
 
 The team had a variety of skill sets that worked well with one another. The whole team contributed in terms of generating feasible ideas and converging to the main project idea. 
 
