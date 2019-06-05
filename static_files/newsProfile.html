@@ -5,9 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>News 1 Profile</title>
 
+
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-                               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="styles.css">
 
 
@@ -48,7 +47,7 @@
                    window.location = "donate.html"
                 })
                 $("#but_volunteer").click(() => {
-                    alert("You have clicked volunteer!")
+                    window.location = "volunteer.html"
                 })
             });
 
@@ -59,6 +58,8 @@
     <body>
 
         <!-- Article Body-->
+        <div class="article-container">
+
         <h1 class="article-header"></h1>
         <div class="back-button">
             <button id="learnBut" type="button" class="btn btn-light">
@@ -73,7 +74,7 @@
         <button id="but_donate" type="button" class="btn btn-cust">Donate
         </button>
         <button id="but_volunteer" type="button" class="btn btn-cust">Volunteer</button>
-
+        </div>
 
     </body>
 </html>
