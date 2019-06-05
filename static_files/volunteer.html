@@ -42,7 +42,6 @@
 
             //Submit form event handler
             function submitForm(e) {
-                e.preventDefault();
 
                 //Check if checkbox is checked off, mark as true if it is
                 if ($('#Monday').is(":checked")) {
@@ -122,8 +121,7 @@
 
     </script>
 
-
-    <form id="volForm">
+    <form id="volForm" action="newsFeed_m3.html">
         <div class="form-row">
             <div class="form-group col-md-6">
                                <label for="inputFirst">First Name</label>
@@ -221,13 +219,10 @@
         </div>
 
         <button id="volunteerBut" type="submit" class="btn btn-primary">Submit</button>
+        <button id="learnBut" type="button" class="btn btn-light">
+            <a href="newsFeed_m3.html">Back</a>
+        </button>
     </form>
-<div class="back-button">
-                    <button id="learnBut" type="button" class="btn
-                        btn-light">
-                        <a href="newsFeed_m3.html">Back</a>
-                    </button>
-                </div>
  
     </body>
 

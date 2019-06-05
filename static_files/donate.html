@@ -36,13 +36,15 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+
             const database = firebase.database();
 
             document.getElementById('donateForm').addEventListener('submit', submitForm);
 
             //Submit form event handler
             function submitForm(e) {
-                e.preventDefault();
+    
+                //e.preventDefault();
 
                 //Get values and post to Firebase
                 database.ref('messages').set({
@@ -58,13 +60,17 @@
                     zip: $('#inputZip').val(),
                     country: $('#inputCountry').val(),
                 });
+
+
+
             };
         })
+
 
     </script>
 
 
-    <form id="donateForm">
+    <form id="donateForm" action="newsFeed_m3.html">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputFirst">First Name</label>
@@ -120,13 +126,12 @@
             </div>
         </div>
         <button id="donateBut" type="submit" class="btn btn-primary">Donate</button>
+            <button id="learnBut" type="button" class="btn btn-light">
+                <a href="newsFeed_m3.html">Back</a>
+            </button>
+        </div>
     </form>
-<div class="back-button">
-                    <button id="learnBut" type="button" class="btn
-                        btn-light">
-                        <a href="newsFeed_m3.html">Back</a>
-                    </button>
-                </div>
+
  
     </body>
 
