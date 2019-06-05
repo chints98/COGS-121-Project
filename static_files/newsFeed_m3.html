@@ -62,37 +62,7 @@ console.log(active_page);
                 });
 
 
-                /*           $('#learnBut2').click( () => { 
-                    if (toggle_US==false) {
-                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
-                    }
-                    else {
-                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
-                    }
-                    $.ajax({
-                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&' + filters,
-                        type: 'GET',
-                        dataType: 'json',
-                        success: (res) => {
-                            console.log(res);
-                            document.getElementById(("news"+2+"Text")).innerHTML = res.data[1].fields.body;
-                            $('#news2Text').append('<button id="but_donate2" type="button" class="btn btn-cust">Donate</button> <button id="but_volunteer2" type="button" class="btn btn-cust">Volunteer</button>');
-//Donate & Vol click
-                            $('#but_donate2').click(() => {
-                                alert("You have clicked donate!")
-                            });
-
-                            $('#but_volunteer2').click(() => {
-                                alert("You have clicked volunteer!")
-                            });
-
-
-                        }
-                    });
-                });
-                 */
-
-
+             
 //Toggle location filter
 $('#butNewsWorld').click( () => {
     active_page = 1;
@@ -123,6 +93,15 @@ $('#butNewsWorld').click( () => {
 
 
     });
+                        $("#page_2").css("background-color", "#F5F5F5");
+                        $("#page_2").css("color", "#000000");
+
+                        $("#page_1").css("background-color", "#71eeb8");
+                        $("#page_1").css("color", "#FFFFFF");
+
+                        $("#page_3").css("background-color", "#F5F5F5");
+                        $("#page_3").css("color", "#000000");
+
 
 });
 
@@ -130,7 +109,7 @@ $('#butNewsWorld').click( () => {
                     active_page = 1;
                     toggle_US = true;
                     $.ajax({    
-                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3',    
+                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full',    
                         type: 'GET',
                         dataType: 'json',
                         success: (res) => {
@@ -162,10 +141,11 @@ $('#butNewsWorld').click( () => {
 
                 $('#page_1').click( () => {
                     if (toggle_US==false) {
-                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
+                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full' 
                     }
                     else {
-                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
+                        filters =
+                            'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full'
                     }
                     $.ajax({    
                         url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=wildfire&' + filters,    
@@ -234,42 +214,6 @@ $('#butNewsWorld').click( () => {
 
 
 
-
-/*                    if (toggle_US==false) {
-                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
-                    }
-                    else {
-                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
-                    }
-                    $.ajax({    
-                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=crime&' + filters,    
-                        type: 'GET',
-                        dataType: 'json',
-                        success: (res) => {
-                            console.log(res);
-                            articles = res;
-                            $('.article-header').each((index,element) => {
-                                console.log('U.S. clicked!');
-                                element.innerHTML = res.data[index].fields.title
-                                document.getElementById(("news1Text")).innerHTML ="";
-                                document.getElementById(("news2Text")).innerHTML ="";
-                                document.getElementById(("news3Text")).innerHTML ="";
-
-                            });
-                            $('.article-body').each((index,element) => {
-                            element.innerHTML =
-                                res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
-                        });
-
-                       
-                        
-        
-                        }
-
-
-
-                    });
-*/
                 });
 
 
@@ -300,47 +244,7 @@ $('#butNewsWorld').click( () => {
                         $("#page_3").css("color", "#FFFFFF");
 
 
-
-                    /*
-                    if (toggle_US==false) {
-                        filters = 'filter[operator]=OR&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][0][negate]=true&filter[conditions][1][field]=body&profile=full&limit=3' 
-                    }
-                    else {
-                        filters = 'filter[operator]=AND&filter[conditions][0][field]=country&filter[conditions][0][value]=USA&filter[conditions][1][field]=body&profile=full&limit=3'
-                    }
-                    $.ajax({    
-                        url: 'https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=flood&' + filters,    
-                        type: 'GET',
-                        dataType: 'json',
-                        success: (res) => {
-                            console.log(res);
-                            articles = res;
-                            $('.article-header').each((index,element) => {
-                                console.log('U.S. clicked!');
-                                element.innerHTML = res.data[index].fields.title
-                                document.getElementById(("news1Text")).innerHTML ="";
-                                document.getElementById(("news2Text")).innerHTML ="";
-                                document.getElementById(("news3Text")).innerHTML ="";
-
-                            });
-                            $('.article-body').each((index,element) => {
-                            element.innerHTML =
-                                res.data[index].fields.body.split(' ').slice(0,30).join(' ') + '...';
-                        });
-
-
-                        $("#page_2").css("background-color", "#F5F5F5");
-                        $("#page_1").css("background-color", "#F5F5F5");
-                        $("#page_3").css("background-color", "#71eeb8");
-        
-                        }
-
-
-
-
-                    });
-*/
-                });
+               });
 
 
                 $('#page_4').click( () => {
