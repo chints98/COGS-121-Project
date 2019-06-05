@@ -40,9 +40,8 @@ server.js - Routing file for navigation within website and contains code managin
 styles.css - Styling sheet for our html files
 
 ## Link to Google Slide 
-
-Link to Google Slide: https://docs.google.com/presentation/d/1vzqfeAiRA1SYq-AdOf9i-Cy4S1W4uzPEw8DjZ_SCRjY/edit?usp=sharing
+https://docs.google.com/presentation/d/1vzqfeAiRA1SYq-AdOf9i-Cy4S1W4uzPEw8DjZ_SCRjY/edit?usp=sharing
 
 
 ## Link to Demo Video 
-Link to demo video: 
+https://screencast-o-matic.com/watch/cq1hhtTupa
