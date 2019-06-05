@@ -17,6 +17,7 @@
 
             $(document).ready(function () {
 
+                //extract article ID and location
                 var url = document.location.href;
                 console.log(url.indexOf("&"));
                 var params = url.split('?')[1].substring();
@@ -25,6 +26,7 @@
                 console.log(params)
                 console.log(params_toggleUS)
 
+                 //load article header and body
                  $.ajax({
                     url: '/news/' + params_id + '/' + params_toggleUS,
                     type: 'GET',
@@ -33,22 +35,15 @@
                         console.log(res)
                         $('.article-header').append(res.title)
                         $('.article-body').append(res.body)
-
-                        /*var img = document.createElement("IMG");
-                    img.src = data.image;
-                    $('.image-container').html(img); 
-                         */
-
-
-                        // console.log(data.headline)
-                        // console.log(data.body)
                     }
-                
                 }); 
 
+                //Donate button click
                 $("#but_donate").click(() => {
                    window.location = "donate.html"
                 })
+                
+                //Volunteer button click
                 $("#but_volunteer").click(() => {
                     window.location = "volunteer.html"
                 })
