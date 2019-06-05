@@ -18,7 +18,7 @@ Chaitanya Prashant worked on full-stack development and initial interaction desi
 Judy Chun worked on front-end development during the initial prototyping phase building the skeleton of the login page, call-to-action items such as "Donate" and "Volunteer" elements, and sketched out the interaction flow of how to implement the ajax interaction using the "Learn More" button as a way to show a short blurb of each individual news articles. Made use of visual style guide so that the team can consistently refer back to same color palette, logo usage, iconography, and button states. Working on the demo video to further help brand the app. 
 
 
-Wye Mun Chin 
+Wye Mun Chin worked on back-end development and implementation, selecting a suitable API to source data relevant for the application, as well as laying out the important variables to keep track of and laying out how to thread these variables throughout the different pages and files. Particularly supported implementation of the news feed, news profile, pagination and toggle functionality, while fixing minor bugs in both front and back end consistently with each milestone and development. 
 
 
 Yi Zu contributed in the initial user interface prototype including the login page. He also created the donate and volunteering forms storing their data on the Firebase database. 
